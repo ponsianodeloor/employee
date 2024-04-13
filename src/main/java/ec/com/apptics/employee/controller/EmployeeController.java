@@ -28,4 +28,8 @@ public class EmployeeController {
         return employeeService.addEmployee(employee);
     }
 
+    /*@RequestMapping(value = "/employee", method = RequestMethod.POST)
+    public Employee addEmployee(@RequestBody Employee employee) {
+        return employeeService.addEmployee(employee);
+    }*/
 }
