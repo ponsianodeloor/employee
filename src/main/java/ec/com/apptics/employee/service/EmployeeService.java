@@ -30,4 +30,11 @@ public class EmployeeService {
         employees.add(employee);
         return employee;
     }
+
+    public Employee updateEmployee(Employee employee, int id) {
+        Employee emp = employees.stream().filter(e -> e.getId() == id).findFirst().get();
+        emp.setName(employee.getName());
+        emp.setEmail(employee.getEmail());
+        return emp;
+    }
 }
