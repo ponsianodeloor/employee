@@ -22,4 +22,12 @@ public class EmployeeService {
     public Employee getEmployeeById(int id) {
         return employees.stream().filter(e -> e.getId() == id).findFirst().get();
     }
+
+    public Employee addEmployee(Employee employee) {
+        //get the last employee id
+        int id = employees.get(employees.size() - 1).getId();
+        employee.setId(id + 1);
+        employees.add(employee);
+        return employee;
+    }
 }
