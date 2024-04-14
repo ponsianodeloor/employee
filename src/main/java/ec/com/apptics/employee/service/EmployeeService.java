@@ -37,4 +37,8 @@ public class EmployeeService {
         emp.setEmail(employee.getEmail());
         return emp;
     }
+
+    public void deleteEmployee(int id) {
+        employees.removeIf(e -> e.getId() == id);
+    }
 }
