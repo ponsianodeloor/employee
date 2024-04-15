@@ -2,6 +2,8 @@ package ec.com.apptics.employee.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Employee {
     @Id
@@ -13,6 +15,9 @@ public class Employee {
     @OneToOne
     @JoinColumn(name = "spouse_id")
     private Spouse spouse;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Address> addresses;
 
     public Employee() {
     }
@@ -53,5 +58,13 @@ public class Employee {
 
     public void setSpouse(Spouse spouse) {
         this.spouse = spouse;
+    }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
     }
 }
