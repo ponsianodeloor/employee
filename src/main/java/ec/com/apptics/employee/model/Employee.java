@@ -1,32 +1,33 @@
 package ec.com.apptics.employee.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     private String email;
+
+    @OneToOne
+    @JoinColumn(name = "spouse_id")
+    private Spouse spouse;
 
     public Employee() {
     }
 
-    public Employee(int id, String name, String email) {
+    public Employee(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -44,5 +45,13 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Spouse getSpouse() {
+        return spouse;
+    }
+
+    public void setSpouse(Spouse spouse) {
+        this.spouse = spouse;
     }
 }

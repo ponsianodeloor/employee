@@ -21,7 +21,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/{id}")
-    public Employee getEmployeeById(@PathVariable int id) {
+    public Employee getEmployeeById(@PathVariable Long id) {
         return employeeService.getEmployeeById(id);
     }
 
@@ -37,13 +37,20 @@ public class EmployeeController {
     }*/
 
     @PutMapping("/employee/{id}/update")
-    public Employee updateEmployee(@RequestBody Employee employee, @PathVariable int id) {
+    public Employee updateEmployee(@RequestBody Employee employee, @PathVariable Long id) {
         Employee updatedEmployee = employeeService.updateEmployee(employee, id);
         return new ResponseEntity<>(updatedEmployee, HttpStatus.ACCEPTED).getBody();
     }
 
+    //update employee spouse
+    @PutMapping("/employee/{id}/update/spouse")
+    public Employee updateEmployeeSpouse(@RequestBody Employee employee, @PathVariable Long id) {
+        Employee updatedEmployee = employeeService.updateEmployeeSpouse(employee, id);
+        return new ResponseEntity<>(updatedEmployee, HttpStatus.ACCEPTED).getBody();
+    }
+
     @DeleteMapping("/employee/{id}/delete")
-    public ResponseEntity<String> deleteEmployee(@PathVariable int id) {
+    public ResponseEntity<String> deleteEmployee(@PathVariable Long id) {
         employeeService.deleteEmployee(id);
         return new ResponseEntity<>("Employee deleted successfully", HttpStatus.OK);
     }
