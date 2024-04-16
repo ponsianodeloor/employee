@@ -1,5 +1,6 @@
 package ec.com.apptics.employee.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class Project {
     private String endDate;
     private String status;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "projects")
     private List<Employee> employees;
 
