@@ -12,7 +12,7 @@ public class Employee {
     private String name;
     private String email;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL) //ALL //PERSIST //REMOVE {CascadeType.ALL, CascadeType.PERSIST, CascadeType.REMOVE}
     @JoinColumn(name = "spouse_id")
     private Spouse spouse;
 
