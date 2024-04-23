@@ -33,6 +33,15 @@ public class Address {
         this.zipCode = zipCode;
     }
 
+    public Address(String streetMain, String streetSecondary, String number, String city, String state, String zipCode) {
+        this.streetMain = streetMain;
+        this.streetSecondary = streetSecondary;
+        this.number = number;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+    }
+
     public Long getId() {
         return id;
     }

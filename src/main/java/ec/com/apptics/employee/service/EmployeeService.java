@@ -64,4 +64,8 @@ public class EmployeeService {
         //employees.removeIf(e -> e.getId() == id);
         employeeRepository.deleteById(id);
     }
+
+    public void createEmployee(Employee employee) {
+        employeeRepository.save(employee);
+    }
 }
